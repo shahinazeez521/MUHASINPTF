@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BIM Coordination & Team Managements</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .back-link {
+            color: #718096;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            display: inline-block;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover { color: #2d3748; }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Skill Detail Layout */
+        .skill-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .skill-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .skill-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-content h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+
+        .skill-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 24px;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f7fafc;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover { transform: translateY(-4px); }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* Actions */
+        .actions {
+            padding: 40px 0 60px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 8px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #3182ce;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2c5282;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #718096;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            color: #2d3748;
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            h1 { font-size: 36px; }
+            .skill-detail { flex-direction: column; }
+            .skill-image, .skill-content { width: 100%; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+            .gallery-item { min-height: 250px; }
+            .btn { display: block; margin: 8px 0; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+           <a href="../services.html" class="back-link">← Back to Skills</a>
+            <h1>BIM Coordination & Team Management</h1>
+        </header>
+
+        <div class="skill-detail">
+            <div class="skill-image">
+                <img src="../skills_folder/skills_images/bim2.avif" alt="BIM Coordination & Team Management">
+            </div>
+            <div class="skill-content">
+                <h2>BIM Coordination & Team Management</h2>
+                <p>Specialized in coordinating interdisciplinary teams and streamlining BIM workflows to ensure seamless project execution. Focused on enhancing collaboration and communication across stakeholders for efficient project delivery.</p>
+                <p>Leading my team in modeling standards and coordination. Managing BIM 360 efficiently to maintain data integrity throughout the project lifecycle.</p>
+                <p>Experienced in organizing and facilitating coordination meetings, resolving design clashes, and ensuring smooth collaboration between architects, engineers, and contractors.</p>
+                <p>Adept at managing BIM execution plans, monitoring model progress, and aligning deliverables with project timelines.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="../portfolio.html" class="btn btn-secondary">Back to Skills</a>
+            <a href="../index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
