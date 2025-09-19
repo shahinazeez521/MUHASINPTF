@@ -1,4 +1,5 @@
 /**
+ * 
 * Template Name: Kelly
 * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
 * Updated: Aug 07 2024 with Bootstrap v5.3.3
@@ -9,6 +10,7 @@
 (function() {
   "use strict";
 
+  
   /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
@@ -181,6 +183,43 @@
       }, false);
     });
 
+  });
+
+  /**
+   * View Desktop/Mobile Button
+   */
+  document.addEventListener('DOMContentLoaded', function() {
+    const viewDesktopBtn = document.getElementById('viewDesktopBtn');
+    let isDesktopView = false;
+
+    if (viewDesktopBtn) {
+      viewDesktopBtn.addEventListener('click', function() {
+        isDesktopView = !isDesktopView;
+        
+        // Get the viewport meta tag
+        const viewport = document.querySelector('meta[name="viewport"]');
+        
+        if (isDesktopView) {
+          // Switch to desktop view
+          viewport.setAttribute('content', 'width=1200');
+          viewDesktopBtn.innerHTML = '<i class="bi bi-phone"></i> View Mobile Site';
+        } else {
+          // Switch back to mobile view
+          viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+          viewDesktopBtn.innerHTML = '<i class="bi bi-display"></i> View Desktop Site';
+        }
+
+        // Store the user's preference
+        localStorage.setItem('preferDesktop', isDesktopView);
+      });
+
+      // Check for stored preference on page load
+      const preferDesktop = localStorage.getItem('preferDesktop') === 'true';
+      if (preferDesktop) {
+        // Trigger the desktop view if previously selected
+        viewDesktopBtn.click();
+      }
+    }
   });
 
 })();
