@@ -144,11 +144,11 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color:#f8f9fa;
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  
 }
 
 .header .logo {
@@ -273,7 +273,7 @@ h6 {
     height: 2px;
     bottom: -6px;
     left: 0;
-    background-color: var(--nav-hover-color);
+    background-color: #aaa;
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -2147,68 +2147,121 @@ body {
   background-clip: padding-box;
 }
 
-/* Add gradient border animation before hover */
-.skill-box::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #d5d5d5, transparent, #acacac);
-  z-index: -1;
-  border-radius: 10px;
-  animation: borderGlow 3s linear infinite;
+/*--------------------------------------------------------------
+# My Skills
+--------------------------------------------------------------*/
+.skills {
+  padding: 60px 0;
+  background-color: #f8f9fa; /* Light background for the section */
 }
 
-/* Add subtle pulse effect before hover */
+.skills .section-title p {
+  font-size: 1.25rem;
+  color: #555;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.skills .row.gy-4 {
+  margin-top: 30px;
+}
+
+/* Skill Box Styling
+  This is the main block that holds the dark-themed styling.
+*/
 .skill-box {
-  animation: gentlePulse 2s infinite;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  height: 100%; /* Ensures all skill boxes in a row have the same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Hover effects */
+/* Skill Box Hover Effect */
 .skill-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(52, 183, 167, 0.2);
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #000000;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Define animations */
-@keyframes borderGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gentlePulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(52, 183, 167, 0.1);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(52, 183, 167, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(52, 183, 167, 0);
-  }
-}
-
-/* Content styles */
+/* Skill Box Title Styling
+*/
 .skill-box h3 {
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 2;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
-.skill-content {
-  position: relative;
-  z-index: 2;
+.skill-box h3 a {
+  color: #414141;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.skill-box h3 a:hover {
+  color: #000000; /* Accent color on hover */
+}
+
+/* Skill Content Area
+*/
+.skill-box .skill-content {
+  /* This div contains the 'Read More' button */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: auto; /* Pushes the content to the bottom of the box */
+}
+
+/* 'Read More' Button Styling
+*/
+.learn-more-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.learn-more-btn span {
+  font-weight: 600;
+}
+
+.learn-more-btn:hover {
+  transform: translateX(5px);
+  color: #34b7a7; /* Accent color on hover */
+}
+
+.learn-more-btn i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/*
+  Since the HTML you provided has no <p> tags, 
+  this CSS will be ready to work if you add them later.
+*/
+.skill-box .skill-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 20px; /* Space between text and button */
 }
 .logo-container {
   width: 40px;  /* Reduced size for better proportion */
@@ -2304,11 +2357,11 @@ body {
 
 .decorative-circle {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  border: 2px dashed #20b2aa;
+  width: 410px;
+  height: 410px;
+  border: 2px dashed #1a1b1b;
   border-radius: 50%;
-  animation: rotate 20s linear infinite;
+  animation: rotate 50s linear infinite;
 }
 
 .cta-buttons {
@@ -2365,4 +2418,30 @@ body {
     justify-content: center;
   }
 }
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: #34b7a7;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+.learn-more-btn:hover {
+  background: #3cc3b4;
+  transform: translateX(5px);
+}
+
+.learn-more-btn i {
+  transition: transform 0.3s ease;
+}
+
+.learn-more-btn:hover i {
+  transform: translateX(5px);
+}
