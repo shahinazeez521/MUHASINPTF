@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AQUA ARABIA  - Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .back-link {
+            color: #718096;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            display: inline-block;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #2d3748;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .meta-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .meta-item p {
+            font-size: 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f7fafc;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Actions */
+        .actions {
+            padding: 40px 0 60px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 8px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #3182ce;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2c5282;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #718096;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            color: #2d3748;
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .gallery-item {
+                min-height: 250px;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .btn {
+                display: block;
+                margin: 8px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+           <a href="../index.html#work" class="back-link">Back to Projects</a>
+            <h1>AQUA ARABIA</h1>
+            
+            <div class="project-meta">
+                  <div class="meta-item">
+                    <h3>Role : <p> BIM Lead Architect</p>  </h3>
+                </div>
+                <div class="meta-item">
+                    <h3>Project Details</h3>
+                    <p>Aqua Arabia is a premier water park and resort destination in Qiddiya, Saudi Arabia, featuring thrilling water rides, wave pools, and lazy rivers. Designed to provide fun for all ages, it combines exciting attractions with lush landscaping and modern amenities, making it a top choice for family entertainment and relaxation.</p>
+                </div>
+            </div>
+        </header>
+
+     <section class="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua10.jpg" alt="React Skill">
+    </div>
+     <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua8.jpg" alt="React Skill">
+    </div>
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua9.jpg" alt="React Skill">
+    </div>
+    
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua11.jpg" alt="React Skill">
+    </div>
+    <div class="gallery-item" data-src="skills_images/thermo.jpg">
+    <img src="project images/aquaa1.jpg" alt="aquarabia">
+    </div>
+    <div class="gallery-item" data-src="skills_folder/javascript.jpg">
+      <img src="project images/aquaa2.jpg" alt="aquarabia">
+    </div>
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua2.jpg" alt="React Skill">
+    </div>
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua4.jpg" alt="React Skill">
+    </div>
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua5.jpg" alt="React Skill">
+    </div>
+    <div class="gallery-item" data-src="aquarabia">
+      <img src="project images/aqua6.jpg" alt="React Skill">
+    </div>
+   
+    
+    
+  </div>
+</section>
+
+        <div class="actions">
+            <a  href="../index.html" class="btn btn-secondary">Back to Home</a>
+            <a href="https://aquarabiaqiddiyacity.com/en" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="">
+    </div>
+
+    <script>
+
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
