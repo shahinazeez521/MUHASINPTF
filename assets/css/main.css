@@ -1892,18 +1892,7 @@ section,
   color: #3498db;
 }
 
-/* Form Styles */
-.contact .php-email-form {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  height: auto;
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  animation: slideInRight 1s ease-out;
-  margin-top: 30px;
-}
+
 
 @media (max-width: 575px) {
   .contact .php-email-form {
@@ -1912,87 +1901,6 @@ section,
   }
 }
 
-.contact .php-email-form .row {
-  animation: fadeInUp 1.2s ease-out;
-}
-
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 1rem;
-  padding: 15px 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  color: #333;
-  background-color: #fff;
-  border: 2px solid rgba(52, 152, 219, 0.2);
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-  transform: translateY(-2px);
-  outline: none;
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: #aaa;
-  font-style: italic;
-}
-
-.contact .php-email-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact .php-email-form button[type=submit] {
-  color: #fff;
-  background: linear-gradient(135deg, #3498db, #2980b9);
-  border: 0;
-  padding: 15px 40px;
-  transition: all 0.4s ease;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: block;
-  margin: 0 auto;
-}
-
-.contact .php-email-form button[type=submit]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.contact .php-email-form button[type=submit]:hover::before {
-  left: 100%;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: linear-gradient(135deg, #2980b9, #3498db);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
-}
-
-.contact .php-email-form button[type=submit]:active {
-  transform: translateY(-1px);
-}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -2562,4 +2470,52 @@ body {
   .navmenu ul {
     gap: 15px;
   }
+}
+
+.sphere {
+  width: 30vmin;  /* Reduced from 50vmin */
+  height: 30vmin; /* Reduced from 50vmin */
+  background: #ffF0;
+  position: absolute; /* Changed from relative to allow positioning */
+  right: 50px;     /* Position from right */
+  bottom: 50px;    /* Position from bottom */
+  animation: spin 5s linear 0s infinite;
+  animation-play-state: running;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  z-index: 1;     /* Ensure sphere stays above other content */
+}
+
+/* Adjust the size of inner circles proportionally */
+.sphere div {
+  --sz: 23%;
+  transform: rotateX(90deg) translateZ(14.7vmin); /* Adjusted from 24.5vmin */
+}
+
+/* Update translateZ values for each circle (multiply original values by 0.6) */
+.sphere div:nth-child(2) { transform: rotateX(90deg) translateZ(13.5vmin); }
+.sphere div:nth-child(3) { transform: rotateX(90deg) translateZ(12vmin); }
+.sphere div:nth-child(4) { transform: rotateX(90deg) translateZ(10.5vmin); }
+.sphere div:nth-child(5) { transform: rotateX(90deg) translateZ(9vmin); }
+.sphere div:nth-child(6) { transform: rotateX(90deg) translateZ(7.5vmin); }
+.sphere div:nth-child(7) { transform: rotateX(90deg) translateZ(6vmin); }
+.sphere div:nth-child(8) { transform: rotateX(90deg) translateZ(4.5vmin); }
+.sphere div:nth-child(9) { transform: rotateX(90deg) translateZ(3vmin); }
+.sphere div:nth-child(10) { transform: rotateX(90deg) translateZ(1.5vmin); }
+.sphere div:nth-child(12) { transform: rotateX(90deg) translateZ(-1.5vmin); }
+.sphere div:nth-child(13) { transform: rotateX(90deg) translateZ(-3vmin); }
+.sphere div:nth-child(14) { transform: rotateX(90deg) translateZ(-4.5vmin); }
+.sphere div:nth-child(15) { transform: rotateX(90deg) translateZ(-6vmin); }
+.sphere div:nth-child(16) { transform: rotateX(90deg) translateZ(-7.5vmin); }
+.sphere div:nth-child(17) { transform: rotateX(90deg) translateZ(-9vmin); }
+.sphere div:nth-child(18) { transform: rotateX(90deg) translateZ(-10.5vmin); }
+.sphere div:nth-child(19) { transform: rotateX(90deg) translateZ(-12vmin); }
+.sphere div:nth-child(20) { transform: rotateX(90deg) translateZ(-13.5vmin); }
+.sphere div:nth-child(21) { transform: rotateX(90deg) translateZ(-14.7vmin); }
+
+/* Hide the "CHECK OUT MY CSS LIGHT SPHERES COLLECTION" text */
+a[href="https://codepen.io/collection/PYZRNJ"] {
+  display: none;
 }
