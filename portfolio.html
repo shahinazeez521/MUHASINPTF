@@ -34,93 +34,99 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-<style>
-    .bubble-wrapper {
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      z-index: -1; /* behind everything */
-      top: 0;
-      left: 0;
-    }
-
-    .bubble {
-    .bubble {
-  position: absolute;
-  top: 100vh; /* Start below the screen */
-  background: rgba(23, 247, 247, 0.3);
-  border-radius: 50%;
-  animation: rise 15s infinite ease-in;
+<style> 
+/* Bubble background */
+ .portfolio {
+     position: relative;
+     overflow: hidden;
+     z-index: 0;
 }
-    }
-
-@keyframes rise {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-120vh) scale(1.5);
-    opacity: 0;
-  }
+ .bubble-wrapper {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     z-index: -1;
 }
-
-    .bubble:nth-child(1) {
-      left: 10%;
-      width: 20px;
-      height: 20px;
-      animation-duration: 12s;
+ .bubble {
+     position: absolute;
+     background: rgba(74, 74, 74, 0.5);
+     border-radius: 50%;
+     animation: rise 15s infinite linear;
+    /* Changed timing function to 'linear' for a more consistent ascent */
+}
+/* Individual bubble sizes, positions, and animation properties */
+ .bubble:nth-child(1) {
+     left: 10%;
+     width: 20px;
+     height: 20px;
+     bottom: -20px;
+    /* Starts just below the bottom of the page */
+     animation-duration: 12s;
+     animation-delay: 2s;
+}
+ .bubble:nth-child(2) {
+     left: 25%;
+     width: 30px;
+     height: 30px;
+     bottom: -30px;
+     animation-duration: 18s;
+     animation-delay: 4s;
+}
+ .bubble:nth-child(3) {
+     left: 40%;
+     width: 15px;
+     height: 15px;
+     bottom: -15px;
+     animation-duration: 10s;
+     animation-delay: 1s;
+}
+ .bubble:nth-child(4) {
+     left: 55%;
+     width: 25px;
+     height: 25px;
+     bottom: -25px;
+     animation-duration: 20s;
+     animation-delay: 5s;
+}
+ .bubble:nth-child(5) {
+     left: 70%;
+     width: 35px;
+     height: 35px;
+     bottom: -35px;
+     animation-duration: 14s;
+     animation-delay: 3s;
+}
+ .bubble:nth-child(6) {
+     left: 85%;
+     width: 20px;
+     height: 20px;
+     bottom: -20px;
+     animation-duration: 16s;
+     animation-delay: 0s;
+}
+/* Animation Keyframes */
+ @keyframes rise {
+     0% {
+         transform: translateY(0);
+         opacity: 0.8;
     }
-
-    .bubble:nth-child(2) {
-      left: 25%;
-      width: 30px;
-      height: 30px;
-      animation-duration: 18s;
+     100% {
+         transform: translateY(-120vh);
+        /* Ensures the bubbles rise past the top of the viewport */
+         opacity: 1;
     }
+}
+ </style>
 
-    .bubble:nth-child(3) {
-      left: 40%;
-      width: 15px;
-      height: 15px;
-      animation-duration: 10s;
-    }
-
-    .bubble:nth-child(4) {
-      left: 55%;
-      width: 25px;
-      height: 25px;
-      animation-duration: 20s;
-    }
-
-    .bubble:nth-child(5) {
-      left: 70%;
-      width: 35px;
-      height: 35px;
-      animation-duration: 14s;
-    }
-
-    .bubble:nth-child(6) {
-      left: 85%;
-      width: 20px;
-      height: 20px;
-      animation-duration: 16s;
-    }
-  </style>
 </head>
 
 
 <body class="portfolio-page">
 <!-- Bubble background -->
-  <div class="bubble-wrapper">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
+ 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-center">
       
@@ -150,7 +156,14 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
-
+       <div class="bubble-wrapper">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
@@ -291,7 +304,52 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector('.bubble-wrapper');
 
+  function createBubble() {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+
+    // random size
+    const size = Math.random() * 40 + 10; 
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+
+    // random horizontal position
+    bubble.style.left = `${Math.random() * 100}%`;
+
+    // start below section
+    bubble.style.top = "100%";
+
+    // random color
+    const colors = [
+      "rgba(74, 74, 74, 0.5)",
+      "rgba(23, 247, 247, 0.3)",
+      "rgba(0, 200, 255, 0.3)",
+      "rgba(0, 255, 150, 0.3)"
+    ];
+    bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    // random animation duration
+    const duration = Math.random() * 10 + 8; 
+    bubble.style.animationDuration = `${duration}s`;
+
+    wrapper.appendChild(bubble);
+
+    // remove bubble after animation ends
+    setTimeout(() => bubble.remove(), duration * 1000);
+  }
+
+  // spawn multiple bubbles continuously
+  setInterval(() => {
+    for (let i = 0; i < 4; i++) { // 4 bubbles every cycle
+      createBubble();
+    }
+  }, 400); // every 0.4s
+});
+</script>
 </body>
 
 
