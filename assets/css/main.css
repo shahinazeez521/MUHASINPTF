@@ -2351,8 +2351,8 @@ body {
 
 .image-container {
   position: relative;
-  width: 300px;  /* Reduced from original size */
-  height: 300px;  /* Reduced from original size */
+  width: 350px;  /* Reduced from original size */
+  height: 350px;  /* Reduced from original size */
   margin-left: auto;
 }
 
