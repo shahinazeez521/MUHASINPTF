@@ -2147,9 +2147,10 @@ body {
 }
 
 .skill-icon i {
-  font-size: 22px;
+  font-size: 20px;
   color: #34b7a7;
   transition: all 0.3s ease;
+  align-items: end;
 }
 
 .skill-box:hover .skill-icon {
@@ -2184,23 +2185,27 @@ body {
   This is the main block that holds the dark-themed styling.
 */
 .skill-box {
-  height: 150px;
+   height: 200px;  /* Keep existing height */
+  width: 250px;  /* Make width same as height for square */
   background-color: #ffffff;
-  color: #ffffff;
-  padding: 30px;
-  border-radius: 5px;
+  padding: 20px;  /* Reduce padding to fit content */
+  border-radius: 10px;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  /* Ensures all skill boxes in a row have the same height */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;  /* Center in column */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-
+/* Adjust text size to fit smaller container */
+.skill-box h5, .skill-box h6 {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
 /* Skill Box Hover Effect */
 .skill-box:hover {
   transform: translateY(-5px);
@@ -2467,19 +2472,19 @@ body {
 }
 
 #navmenu ul li:nth-child(1) a { /* Targets the "Home" link */
-  background-color: #D3D3D3; /* Alice Blue */
+  background-color: #20b2aa; /* Alice Blue */
 }
 
 #navmenu ul li:nth-child(2) a { /* Targets the "Skills" link */
-  background-color:#E6E6FA ; /* Lavender */
+  background-color:#20b2aa ; /* Lavender */
 }
 
 #navmenu ul li:nth-child(3) a { /* Targets the "Projects" link */
-  background-color: #87CEFA; /* Mint Cream */
+  background-color: #20b2aa; /* Mint Cream */
 }
 
 #navmenu ul li:nth-child(4) a { /* Targets the "Let's Talk" link */
-  background-color:#B0E0E6; /* Lavender Blush */
+  background-color:#20b2aa; /* Lavender Blush */
 }
 
 .header .container-fluid {
