@@ -19,7 +19,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color:#F8F9FA; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #222222; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #34b7a7; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -813,7 +813,25 @@ section,
     object-position: left center;
   }
 }
+/* Mobile specific styles */
+@media (max-width: 768px) {
+  .header {
+    background-color:#E0FFFF;  /* Change this to your desired color */
+    transition: background-color 0.3s ease;
+  }
 
+  .header .logo h1 span {
+    color: #1d1c1c;  /* Change logo text color for better contrast */
+  }
+
+  #navmenu ul li a {
+    color: #161616;  /* Change nav links color for better contrast */
+  }
+
+  .mobile-nav-toggle {
+    color: #181818;  /* Change hamburger menu color */
+  }
+}
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -2441,6 +2459,31 @@ body {
   background-color:#20b2aa; /* Lavender Blush */
 }
 
+@media (max-width: 768px){
+  #navmenu ul li a {
+  padding: 10px 15px; /* Add padding to make the background visible */
+  border-radius: 0cap; /* Optional: adds rounded corners to the background */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+#navmenu ul li:nth-child(1) a { /* Targets the "Home" link */
+  background-color: #E0FFFF; /* Alice Blue */
+}
+
+#navmenu ul li:nth-child(2) a { /* Targets the "Skills" link */
+  background-color:#AFEEEE ; /* Lavender */
+}
+
+#navmenu ul li:nth-child(3) a { /* Targets the "Projects" link */
+  background-color: #ADD8E6; /* Mint Cream */
+}
+
+#navmenu ul li:nth-child(4) a { /* Targets the "Let's Talk" link */
+  background-color:#E0FFFF; /* Lavender Blush */
+}
+
+}
+
 .header .container-fluid {
   display: flex;
   justify-content: space-between; /* Creates space between logo and nav */
@@ -2470,52 +2513,4 @@ body {
   .navmenu ul {
     gap: 15px;
   }
-}
-
-.sphere {
-  width: 30vmin;  /* Reduced from 50vmin */
-  height: 30vmin; /* Reduced from 50vmin */
-  background: #ffF0;
-  position: absolute; /* Changed from relative to allow positioning */
-  right: 50px;     /* Position from right */
-  bottom: 50px;    /* Position from bottom */
-  animation: spin 5s linear 0s infinite;
-  animation-play-state: running;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: none;
-  z-index: 1;     /* Ensure sphere stays above other content */
-}
-
-/* Adjust the size of inner circles proportionally */
-.sphere div {
-  --sz: 23%;
-  transform: rotateX(90deg) translateZ(14.7vmin); /* Adjusted from 24.5vmin */
-}
-
-/* Update translateZ values for each circle (multiply original values by 0.6) */
-.sphere div:nth-child(2) { transform: rotateX(90deg) translateZ(13.5vmin); }
-.sphere div:nth-child(3) { transform: rotateX(90deg) translateZ(12vmin); }
-.sphere div:nth-child(4) { transform: rotateX(90deg) translateZ(10.5vmin); }
-.sphere div:nth-child(5) { transform: rotateX(90deg) translateZ(9vmin); }
-.sphere div:nth-child(6) { transform: rotateX(90deg) translateZ(7.5vmin); }
-.sphere div:nth-child(7) { transform: rotateX(90deg) translateZ(6vmin); }
-.sphere div:nth-child(8) { transform: rotateX(90deg) translateZ(4.5vmin); }
-.sphere div:nth-child(9) { transform: rotateX(90deg) translateZ(3vmin); }
-.sphere div:nth-child(10) { transform: rotateX(90deg) translateZ(1.5vmin); }
-.sphere div:nth-child(12) { transform: rotateX(90deg) translateZ(-1.5vmin); }
-.sphere div:nth-child(13) { transform: rotateX(90deg) translateZ(-3vmin); }
-.sphere div:nth-child(14) { transform: rotateX(90deg) translateZ(-4.5vmin); }
-.sphere div:nth-child(15) { transform: rotateX(90deg) translateZ(-6vmin); }
-.sphere div:nth-child(16) { transform: rotateX(90deg) translateZ(-7.5vmin); }
-.sphere div:nth-child(17) { transform: rotateX(90deg) translateZ(-9vmin); }
-.sphere div:nth-child(18) { transform: rotateX(90deg) translateZ(-10.5vmin); }
-.sphere div:nth-child(19) { transform: rotateX(90deg) translateZ(-12vmin); }
-.sphere div:nth-child(20) { transform: rotateX(90deg) translateZ(-13.5vmin); }
-.sphere div:nth-child(21) { transform: rotateX(90deg) translateZ(-14.7vmin); }
-
-/* Hide the "CHECK OUT MY CSS LIGHT SPHERES COLLECTION" text */
-a[href="https://codepen.io/collection/PYZRNJ"] {
-  display: none;
 }
