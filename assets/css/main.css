@@ -2351,38 +2351,36 @@ body {
 
 .image-container {
   position: relative;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 300px;  /* Reduced from original size */
+  height: 300px;  /* Reduced from original size */
+  margin-left: auto;
 }
 
 .circular-frame {
-  width: 400px;
-  height: 400px;
+  width: 280px;  /* Reduced from original size */
+  height: 280px;  /* Reduced from original size */
   border-radius: 50%;
   overflow: hidden;
-  border: 8px solid #fff;
-  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  border: 2px solid #20b2aa;
   position: relative;
   z-index: 2;
 }
-
 .circular-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
-
 .decorative-circle {
   position: absolute;
-  width: 410px;
-  height: 410px;
-  border: 2px dashed #1a1b1b;
+  top: -10px;
+  left: -10px;
+  width: 300px;  /* Reduced from original size */
+  height: 300px;  /* Reduced from original size */
+  border: 2px dashed #20b2aa;
   border-radius: 50%;
-  animation: rotate 50s linear infinite;
+  animation: rotate 20s linear infinite;
 }
-
 .cta-buttons {
   margin-top: 30px;
   display: flex;
@@ -2421,20 +2419,68 @@ body {
   .hero-content {
     flex-direction: column-reverse;
     text-align: center;
+    align-items: center;
+    padding: 0 20px;
   }
 
-  .circular-frame {
-    width: 300px;
-    height: 300px;
-  }
+  .image-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .decorative-circle {
-    width: 350px;
-    height: 350px;
+.circular-frame {
+  width: 230px;
+  height: 230px;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #20b2aa;
+  z-index: 2;
+}
+
+.decorative-circle {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  border: 2px dashed #20b2aa;
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+  .text-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .cta-buttons {
+    display: flex;
     justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .btn-resume {
+    margin: 0 auto;
+    display: inline-block;
   }
 }
 .learn-more-btn {
