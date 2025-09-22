@@ -57,31 +57,69 @@
             padding: 60px 0;
         }
 
-        .skill-image {
+        /* Slider */
+        .slider {
+            position: relative;
             flex: 1;
             min-width: 300px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                         0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        .skill-image img {
             width: 100%;
-            height: auto;
-            display: block;
+            aspect-ratio: 25/18; 
         }
 
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Right side content */
         .skill-content {
             flex: 1;
             min-width: 300px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        .skill-content h2 {
-            font-size: 32px;
+        .skill-content h3 {
+            font-size: 28px;
             font-weight: 600;
-            color: #1a202c;
             margin-bottom: 20px;
+            color: #1a202c;
+            border-bottom: 2px solid #3182ce;
+            display: inline-block;
+            padding-bottom: 4px;
         }
 
         .skill-content p {
@@ -90,37 +128,6 @@
             color: #4a5568;
             margin-bottom: 24px;
         }
-
-        /* Gallery */
-        .gallery {
-            padding: 60px 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 4/3;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #f7fafc;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover { transform: translateY(-4px); }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img { transform: scale(1.05); }
 
         /* Actions */
         .actions {
@@ -150,46 +157,37 @@
             transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: #718096;
-            border: 1px solid #e2e8f0;
-        }
-
-        .btn-secondary:hover {
-            color: #2d3748;
-            border-color: #cbd5e0;
-            transform: translateY(-1px);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .container { padding: 0 16px; }
-            h1 { font-size: 36px; }
             .skill-detail { flex-direction: column; }
-            .skill-image, .skill-content { width: 100%; }
-            .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
-            .gallery-item { min-height: 250px; }
-            .btn { display: block; margin: 8px 0; text-align: center; }
+            .slider, .skill-content { width: 100%; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <a href="../services.html" class="back-link">← Back to Skills</a>
+           <a href="../services.html" class="back-link">← Back to Skills</a>
             <h1>BIM 360 Model Management</h1>
         </header>
 
-        <!-- Skill Section -->
         <div class="skill-detail">
-            <div class="skill-image">
-                <img src="../skills_folder/skills_images/bim360.jpg" alt="BIM 360 Model Management">
+            <!-- Slider -->
+            <div class="slider">
+                <div class="slides" id="slides">
+                    <img src="skills_images/bim363.jpg" alt="3D Printing 1">
+                <img src="skills_images/bim360.jpg" alt="3D Printing 1">
+               <img src="skills_images/bim361.jpg" alt="3D Printing 1">
+               <img src="skills_images/bim362.jpg" alt="3D Printing 1">
+                </div>
+                <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+                <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
             </div>
 
+            <!-- Right Side -->
             <div class="skill-content">
-                <h2>Skill Description</h2>
-                <p>
+                <h3>Skill Description</h3>
+                 <p>
                     Management of federated models on BIM 360, ensuring seamless coordination 
                     across disciplines. Project data is maintained in an updated, accessible, 
                     and reliable state for all stakeholders. Responsibilities include overseeing 
@@ -201,25 +199,17 @@
             </div>
         </div>
 
-        <!-- Gallery Section -->
-        <div class="gallery">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="../skills_folder/skills_images/bim1.jpg" alt="BIM Coordination">
-                </div>
-                <div class="gallery-item">
-                    <img src="../skills_folder/skills_images/bim2.jpg" alt="BIM Coordination">
-                </div>
-                <div class="gallery-item">
-                    <img src="../skills_folder/skills_images/bim3.jpg" alt="BIM Coordination">
-                </div>
-            </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="actions">
-            <a href="../index.html" class="btn btn-primary">Back to Home</a>
-        </div>
+       
     </div>
+
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slides = document.getElementById("slides");
+            const total = slides.children.length;
+            index = (index + step + total) % total;
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+    </script>
 </body>
 </html>
