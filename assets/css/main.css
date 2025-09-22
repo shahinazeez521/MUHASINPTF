@@ -2186,7 +2186,7 @@ body {
 */
 .skill-box {
    height: 165px;  /* Keep existing height */
-  width: 250px;  /* Make width same as height for square */
+  width: 300px;  /* Make width same as height for square */
   background-color: #ffffff;
   padding: 20px;  /* Reduce padding to fit content */
   border-radius: 10px;
