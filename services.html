@@ -27,13 +27,35 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
+<!-- =======================================================
   * Template Name: Kelly
   * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+.skills.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.skills .container {
+  position: relative;
+  z-index: 1;
+}
+
+#bubbleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+}
+</style>
 </head>
 
 <body class="portfolio-page">
@@ -58,51 +80,14 @@
       </a>
     </div>
 
-<style> 
-/* Bubble background */
- /* Bubble background inside skills section */
-#skills {
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-}
 
-.bubble-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* behind content */
-}
-
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(74, 74, 74, 0.4);
-  animation: rise linear forwards;
-}
-
-@keyframes rise {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(-150vh) scale(1.5);
-    opacity: 0;
-  }
-}
-
-</style>
   </header>
 
   <main class="main">
 
     <!-- Skills Section -->
     <section id="skills" class="skills section">    
- <div class="bubble-wrapper"></div>  
+ <canvas id="bubbleCanvas"></canvas> 
    <div class="container section-title" data-aos="fade-up">
     <h4>CORE BIM & ARCHITECTURAL EXPERTISE</h4>
       </div>
@@ -311,53 +296,69 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const wrapper = document.querySelector('.bubble-wrapper');
+  const canvas = document.getElementById("bubbleCanvas");
+  const ctx = canvas.getContext("2d");
 
-  function createBubble() {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
+  // Make canvas always fit screen
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
 
-    // random size
-    const size = Math.random() * 40 + 10; 
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
+  // Bubble class
+  class Bubble {
+    constructor(x, y, radius, dx, dy, color) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.dx = dx;
+      this.dy = dy;
+      this.color = color;
+    }
 
-    // random horizontal position
-    bubble.style.left = `${Math.random() * 100}%`;
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.closePath();
+    }
 
-    // start below section
-    bubble.style.top = "100%";
-
-    // random color
-    const colors = [
-      "rgba(74, 74, 74, 0.5)",
-      "rgba(23, 247, 247, 0.3)",
-      "rgba(0, 200, 255, 0.3)",
-      "rgba(0, 255, 150, 0.3)"
-    ];
-    bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-    // random animation duration
-    const duration = Math.random() * 10 + 8; 
-    bubble.style.animationDuration = `${duration}s`;
-
-    wrapper.appendChild(bubble);
-
-    // remove bubble after animation ends
-    setTimeout(() => bubble.remove(), duration * 1000);
+    update() {
+      // Bounce off edges
+      if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+        this.dx = -this.dx;
+      }
+      if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+        this.dy = -this.dy;
+      }
+      this.x += this.dx;
+      this.y += this.dy;
+      this.draw();
+    }
   }
 
-  // spawn multiple bubbles continuously
-  setInterval(() => {
-    for (let i = 0; i < 1; i++) { // 4 bubbles every cycle
-      createBubble();
-    }
-  }, 400); // every 0.4s
-});
-</script>
+  // Create 4 pastel bubbles
+const bubbles = [
+  new Bubble(150, 100, 30, 4, 3, "rgba(211, 211, 211, 0.35)"), // light gray
+  new Bubble(400, 200, 25, -3.5, 3, "rgba(220, 220, 220, 0.35)"), // gainsboro
+  new Bubble(700, 150, 35, 3, -3.5, "rgba(245, 245, 245, 0.35)"), // whitesmoke
+  new Bubble(900, 300, 20, -4, -3, "rgba(192, 192, 192, 0.35)") // silver
+];
 
+  // Animate continuously
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach(bubble => bubble.update());
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
 </body>
 
 </html>
