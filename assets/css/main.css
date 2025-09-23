@@ -1960,6 +1960,7 @@ section,
   100% { transform: scale(1); }
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact {

@@ -111,14 +111,15 @@
  @keyframes rise {
      0% {
          transform: translateY(0);
-         opacity: 0.8;
+         opacity: 0.5;
     }
      100% {
          transform: translateY(-120vh);
         /* Ensures the bubbles rise past the top of the viewport */
-         opacity: 1;
+         opacity: .5;
     }
 }
+
  </style>
 
 </head>
@@ -146,7 +147,7 @@
       <a href="index.html" class="logo d-flex align-items-center position-absolute" style="left: 0;">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-             <h1><span style="font-size:medium;"><b>Muhammed Muhasin</b></span> </h1>
+            <h1><span style="font-weight: 900; font-size: medium;">Muhammed Muhasin</span></h1>
       </a>
     </div>
   </header>
@@ -324,12 +325,12 @@ document.addEventListener("DOMContentLoaded", () => {
     bubble.style.top = "100%";
 
     // random color
-    const colors = [
-      "rgba(74, 74, 74, 0.5)",
-      "rgba(23, 247, 247, 0.3)",
-      "rgba(0, 200, 255, 0.3)",
-      "rgba(0, 255, 150, 0.3)"
-    ];
+ const colors = [
+  "rgba(255, 0, 255, 0.6)",
+  "rgba(0, 255, 255, 0.6)",
+  "rgba(255, 255, 0, 0.6)",
+  "rgba(0, 255, 0, 0.6)"
+];
     bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
 
     // random animation duration
@@ -344,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // spawn multiple bubbles continuously
   setInterval(() => {
-    for (let i = 0; i < 4; i++) { // 4 bubbles every cycle
+    for (let i = 0; i < 1; i++) { // 4 bubbles every cycle
       createBubble();
     }
   }, 400); // every 0.4s
