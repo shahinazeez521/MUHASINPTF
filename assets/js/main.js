@@ -237,4 +237,88 @@
       },
     });
   });
+
+
+  // Ongoing Projects Animation and Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS for ongoing projects
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }
+
+  // Progress bar animation
+  const progressBars = document.querySelectorAll('.ongoing-info .progress-bar');
+  
+  // Function to animate progress bars when they come into view
+  function animateProgressBars() {
+    progressBars.forEach(bar => {
+      const value = bar.getAttribute('aria-valuenow');
+      bar.style.width = '0%';
+      
+      // Animate after a short delay
+      setTimeout(() => {
+        bar.style.width = value + '%';
+      }, 300);
+    });
+  }
+
+  // Intersection Observer to trigger progress bar animation
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateProgressBars();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observe the ongoing projects section
+    const ongoingSection = document.getElementById('ongoing-projects');
+    if (ongoingSection) {
+      observer.observe(ongoingSection);
+    }
+  } else {
+    // Fallback for browsers that don't support IntersectionObserver
+    animateProgressBars();
+  }
+
+  // Add hover effects for ongoing project cards
+  const ongoingCards = document.querySelectorAll('.ongoing-card');
+  
+  ongoingCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Handle responsive behavior
+  function handleResponsiveLayout() {
+    const ongoingItems = document.querySelectorAll('.ongoing-item');
+    
+    if (window.innerWidth < 768) {
+      // Mobile layout adjustments
+      ongoingItems.forEach(item => {
+        item.style.marginBottom = '30px';
+      });
+    } else {
+      // Reset for larger screens
+      ongoingItems.forEach(item => {
+        item.style.marginBottom = '';
+      });
+    }
+  }
+
+  // Initial call and window resize listener
+  handleResponsiveLayout();
+  window.addEventListener('resize', handleResponsiveLayout);
+});
 })();
