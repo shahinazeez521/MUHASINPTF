@@ -5,6 +5,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+@import url("redesign.css");
 
 /*--------------------------------------------------------------
 # Font & Color Variables
@@ -1332,6 +1333,26 @@ section,
   background-color: #f8f9fa;
 }
 
+.portfolio-details .other-works-link {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #111;
+  border-radius: 999px;
+  color: #111;
+  display: inline-flex;
+  font-size: 14px;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 10px 18px;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.portfolio-details .other-works-link:hover {
+  background: #111;
+  color: #fff;
+}
+
 /* Add spacing between project sections */
 .portfolio-details .container {
   max-width: 1200px;
@@ -1431,6 +1452,62 @@ section,
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
+.case-study-page .case-study .case-hero {
+  aspect-ratio: auto;
+  background: #dedbd3;
+  border: 1px solid rgba(25, 25, 25, .14);
+  border-radius: 8px;
+  box-shadow: 0 18px 46px rgba(25, 25, 25, .12);
+  height: clamp(320px, 48vw, 600px);
+  max-height: none;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider {
+  background: #dedbd3;
+  border: 0;
+  border-radius: inherit;
+  box-shadow: none;
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider .swiper-wrapper,
+.case-study-page .case-study .case-hero .portfolio-details-slider .swiper-slide {
+  height: 100%;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider .swiper-slide {
+  align-items: center;
+  background: #dedbd3;
+  display: flex;
+  justify-content: center;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider img {
+  background: #dedbd3;
+  box-sizing: border-box;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+  width: 100%;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider img:hover {
+  box-shadow: none;
+  transform: none;
+}
+.case-study-page .case-study .case-hero .portfolio-details-slider .swiper-pagination {
+  bottom: 12px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .case-study-page .case-study .case-hero {
+    height: clamp(280px, 88vw, 420px);
+  }
+}
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
   margin-top: 20px;
@@ -1571,6 +1648,128 @@ section,
 
 .portfolio-details .portfolio-description p:last-child {
   margin-bottom: 0;
+}
+
+.portfolio-details-page #navmenu,
+.portfolio-details-page .mobile-nav-toggle {
+  display: none;
+}
+
+.skill-details-page #header .navmenu {
+  display: none;
+}
+
+.portfolio-details .portfolio-info > h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 12px;
+  color: #24383b;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.portfolio-details .portfolio-info > h2::before {
+  content: '';
+  width: 4px;
+  height: 22px;
+  flex: 0 0 4px;
+  border-radius: 2px;
+  background: #20b2aa;
+}
+
+.portfolio-details .portfolio-info > h2 + p {
+  margin: 0;
+  padding: 18px 20px;
+  border: 1px solid #d6e9e5;
+  border-left: 3px solid #20b2aa;
+  border-radius: 8px;
+  background: #f0f7f6;
+  color: #536266;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.project-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: 0 0 28px;
+  background: #f4f3f1;
+  border: 1px solid rgba(37, 41, 45, 0.12);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.project-summary .summary-item {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(37, 41, 45, 0.12);
+  padding: 18px 18px 20px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.project-summary .summary-item:last-child {
+  border-right: 0;
+}
+
+.project-summary .summary-label {
+  display: block;
+  margin-bottom: 14px;
+  color: #847d6d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-summary .summary-item p {
+  margin: 0;
+  color: #1f2328;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.project-detail-grid .detail-item {
+  background: #f7f7f5;
+  border: 1px solid rgba(33, 37, 41, 0.08);
+  padding: 22px 20px 18px;
+  min-height: 190px;
+}
+
+.project-detail-grid .detail-number {
+  display: block;
+  margin-bottom: 18px;
+  color: #656d73;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-detail-grid .detail-item p {
+  margin: 0;
+  color: #4d545a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+  .project-summary,
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive Design */

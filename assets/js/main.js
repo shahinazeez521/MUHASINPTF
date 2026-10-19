@@ -10,6 +10,114 @@
 (function() {
   "use strict";
 
+  function renderProjectCaseStudy() {
+    const details = document.querySelector("#portfolio-details");
+    const otherWorksLink = details?.querySelector(".other-works-link");
+    const info = details?.querySelector(".portfolio-info");
+    const slider = details?.querySelector(".portfolio-details-slider");
+    const firstImage = slider?.querySelector(".swiper-slide img");
+    const title = info?.querySelector("h3")?.textContent.trim();
+
+    if (!details || !info || !slider || !firstImage || !title) return;
+
+    const fields = [...info.querySelectorAll("li")].reduce((values, item) => {
+      const label = item.querySelector("strong")?.textContent.replace(/:$/, "").trim().toLowerCase();
+      const value = item.textContent.replace(item.querySelector("strong")?.textContent ?? "", "").replace(/^\s*:\s*/, "").trim();
+      if (label && value) values[label] = { value, link: item.querySelector("a")?.href };
+      return values;
+    }, {});
+    const description = [...info.querySelectorAll("p")].map(paragraph => paragraph.textContent.trim()).filter(Boolean).join(" ");
+    const category = /hospital|health/i.test(title) ? "Healthcare" : /museum/i.test(title) ? "Cultural" : "Entertainment";
+    const role = fields.role?.value || "BIM Lead Architect";
+    const location = fields.location?.value || "UAE";
+    const projectSummary = description.length > 78 ? `${description.slice(0, 75).trimEnd()}...` : description || title;
+    const galleryImages = slider.querySelectorAll(".swiper-slide img");
+    const projectSpecificDetails = details.querySelector(".project-detail-grid[data-project-specific]");
+    const projectSpecificKey = projectSpecificDetails?.dataset.projectSpecific;
+    const normalizedTitle = title.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const makeElement = (tag, className, text) => {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text) element.textContent = text;
+      return element;
+    };
+    const makeFact = (label, value) => {
+      const fact = makeElement("div", "case-fact");
+      fact.append(makeElement("span", "", label), makeElement("strong", "", value));
+      return fact;
+    };
+
+    document.body.classList.add("case-study-page");
+    const page = makeElement("article", "case-study");
+    const heading = makeElement("header", "case-header");
+    heading.append(makeElement("h1", "", title), makeElement("div", "case-meta", `${location} · ${category} · ${role}`));
+
+    const hero = makeElement("figure", "case-hero");
+    slider.querySelectorAll(".swiper-slide img").forEach((image, index) => {
+      image.alt = `${title} gallery image ${index + 1}`;
+    });
+    slider.classList.add("case-hero-slider");
+    hero.append(slider);
+
+    const facts = makeElement("div", "case-facts");
+    facts.append(
+      makeFact("My role", role),
+      makeFact("Project", projectSummary),
+      makeFact("Contribution", "Design development · BIM coordination · Digital workflows")
+    );
+
+    const cards = makeElement("div", "case-cards");
+    if (projectSpecificKey && normalizedTitle.includes(projectSpecificKey)) {
+      cards.classList.add(`${projectSpecificKey}-case-cards`);
+      projectSpecificDetails.querySelectorAll(".detail-item").forEach(item => {
+        const card = makeElement("section", "case-card");
+        const heading = makeElement("h2", "", item.querySelector(".detail-number")?.textContent.trim());
+        const kicker = item.querySelector(".detail-kicker")?.textContent.trim();
+        const paragraph = item.querySelector("p")?.textContent.trim();
+        card.append(heading);
+        if (kicker) card.append(makeElement("span", "case-card-kicker", kicker));
+        if (paragraph) card.append(makeElement("p", "", paragraph));
+        const tags = item.querySelector(".detail-tags");
+        if (tags) {
+          const tagList = makeElement("ul", "case-card-tags");
+          tags.querySelectorAll("li").forEach(tag => tagList.append(makeElement("li", "", tag.textContent.trim())));
+          card.append(tagList);
+        }
+        cards.append(card);
+      });
+    } else {
+      [
+        ["01 Design", "Develop design solutions for complex architectural forms and coordinate design intent across project teams."],
+        ["02 BIM Delivery", "Lead model coordination, issue resolution and multidisciplinary BIM delivery."],
+        ["03 Digital Workflow", "Use Rhino, Grasshopper and Rhino.Inside.Revit to connect design geometry with Revit delivery."]
+      ].forEach(([cardTitle, text]) => {
+        const card = makeElement("section", "case-card");
+        card.append(makeElement("h2", "", cardTitle), makeElement("p", "", text));
+        cards.append(card);
+      });
+    }
+
+    if (otherWorksLink) page.append(otherWorksLink);
+    page.append(heading, hero, facts, cards);
+    if (description) {
+      const overview = makeElement("section", "case-overview");
+      overview.append(makeElement("h2", "", "Project overview"), makeElement("p", "", description));
+      if (fields["project url"]?.link) {
+        const projectLink = makeElement("a", "text-link", "VISIT PROJECT WEBSITE");
+        projectLink.href = fields["project url"].link;
+        projectLink.target = "_blank";
+        projectLink.rel = "noopener";
+        projectLink.append(" ", makeElement("i", "bi bi-arrow-up-right"));
+        overview.append(projectLink);
+      }
+      page.append(overview);
+    }
+
+    details.replaceChildren(page);
+  }
+
+  renderProjectCaseStudy();
+
   
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -224,9 +332,14 @@
    document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.portfolio-details-slider', {
       slidesPerView: 1,
-      spaceBetween: 30,
+      spaceBetween: 0,
       loop: true,
       grabCursor: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      speed: 600,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
