@@ -228,6 +228,14 @@ body.redesign-page a.button-dark { color: #fff; }
   max-height: 72px;
   max-width: 112px;
 }
+.collaborator-logo--nhm {
+  height: 92px;
+  grid-column: span 2;
+}
+.collaborator-logo--nhm img {
+  max-height: 84px;
+  max-width: 220px;
+}
 .statement-band {
   align-items: center;
   background: #fff;
@@ -954,6 +962,8 @@ body.redesign-page.skill-details-page .back-link:hover {
   .collaborator-logo img { max-height: 44px; max-width: 76px; }
   .collaborator-logo--warner-bros { height: 72px; }
   .collaborator-logo--warner-bros img { max-height: 60px; max-width: 84px; }
+  .collaborator-logo--nhm { height: 76px; }
+  .collaborator-logo--nhm img { max-height: 64px; max-width: 176px; }
   .statement-band { padding: 27px 18px; }
   .statement-band h2 { font-size: 17px; line-height: 1.45; }
   .statement-bottom { align-items: start; flex-direction: column; gap: 18px; }
