@@ -272,7 +272,7 @@ body.redesign-page a.button-dark { color: #fff; }
   margin: 0 0 12px;
   color: #000;
 }
-.leadership-header h2,
+.leadership-header h2:not(.text-flow-heading),
 .delivery-title {
   animation: headingReveal .9s cubic-bezier(.2, .75, .25, 1) both;
   animation-range: entry 0% entry 80%;
@@ -479,16 +479,19 @@ body.redesign-page a.button-dark { color: #fff; }
   margin-bottom: 8px;
 }
 .delivery-title {
-  animation: textFlow 4s linear infinite;
-  background: linear-gradient(90deg, #000 0%, #888 25%, #000 50%, #888 75%, #000 100%);
-  background-clip: text;
-  background-size: 200% auto;
-  color: transparent;
   font-size: clamp(12px, 3vw, 44px);
   font-weight: 800;
   line-height: 1.15;
   margin: 0 0 10px;
   white-space: nowrap;
+}
+.delivery-title,
+body.redesign-page .text-flow-heading {
+  animation: textFlow 4s linear infinite;
+  background: linear-gradient(90deg, #000 0%, #888 25%, #000 50%, #888 75%, #000 100%);
+  background-clip: text;
+  background-size: 200% auto;
+  color: transparent;
   -webkit-background-clip: text;
 }
 .delivery-intro {
@@ -1035,7 +1038,7 @@ body.redesign-page.skill-details-page .back-link:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .leadership-header h2, .delivery-title, .delivery-card {
+  .leadership-header h2, .delivery-title, .text-flow-heading, .delivery-card {
     animation: none;
   }
 }
