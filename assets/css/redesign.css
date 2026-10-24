@@ -188,11 +188,11 @@ body.redesign-page a.button-dark { color: #fff; }
 .hero-note { bottom: 18px; color: var(--redesign-muted); display: flex; font: 700 8px/1.5 "Manrope", sans-serif; justify-content: space-between; left: 0; position: absolute; right: 0; text-align: right; }
 .hero-note span:first-child { color: var(--redesign-gold); }
 .statement-band .collaborators {
-  background: var(--redesign-paper);
+  background: #fff;
   min-width: 0;
 }
 .collaborators .collaborator-grid {
-  background: var(--redesign-paper);
+  background: #fff;
 }
 .collaborators .eyebrow {
   border-bottom: 1px solid var(--redesign-line);
@@ -223,7 +223,7 @@ body.redesign-page a.button-dark { color: #fff; }
 }
 .statement-band {
   align-items: center;
-  background: var(--redesign-paper);
+  background: #fff;
   border-bottom: 1px solid var(--redesign-line);
   border-top: 1px solid var(--redesign-line);
   column-gap: 34px;
