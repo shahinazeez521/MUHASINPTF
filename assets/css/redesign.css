@@ -221,6 +221,13 @@ body.redesign-page a.button-dark { color: #fff; }
   object-fit: contain;
   width: 100%;
 }
+.collaborator-logo--warner-bros {
+  height: 80px;
+}
+.collaborator-logo--warner-bros img {
+  max-height: 64px;
+  max-width: 100px;
+}
 .statement-band {
   align-items: center;
   background: #fff;
@@ -945,6 +952,8 @@ body.redesign-page.skill-details-page .back-link:hover {
   .collaborators .eyebrow { font-size: 8px; }
   .collaborator-logo { height: 52px; padding: 4px 3px; }
   .collaborator-logo img { max-height: 34px; max-width: 64px; }
+  .collaborator-logo--warner-bros { height: 66px; }
+  .collaborator-logo--warner-bros img { max-height: 52px; max-width: 76px; }
   .statement-band { padding-block: 27px; }
   .statement-band h2 { font-size: 17px; line-height: 1.45; }
   .statement-bottom { align-items: start; flex-direction: column; gap: 18px; }
